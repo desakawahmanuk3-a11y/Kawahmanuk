@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desa Kawahmanuk - Desa Hijau yang Asri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #81c784;
+            --earth-brown: #795548;
+            --light-brown: #a1887f;
+            --sky-blue: #64b5f6;
+            --light-blue: #bbdefb;
+            --cream: #f5f5dc;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #555555;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --edit-color: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--light-green);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--light-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/village1/1600/800.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--earth-brown);
+        }
+
+        .btn-edit {
+            background-color: var(--edit-color);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-edit:hover {
+            background-color: #e68900;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--earth-brown);
+        }
+
+        /* Home Section */
+        #home {
+            background-color: var(--white);
+        }
+
+        .welcome-message {
+            background-color: var(--light-green);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .welcome-message h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .village-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .village-intro-text {
+            padding-right: 1rem;
+        }
+
+        .village-intro-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .village-intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Village Profile Section */
+        #profile {
+            background-color: var(--cream);
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .profile-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+        .profile-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-card h3 i {
+            color: var(--earth-brown);
+        }
+
+        .org-structure {
+            list-style-type: none;
+        }
+
+        .org-structure li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-brown);
+        }
+
+        .org-structure li:last-child {
+            border-bottom: none;
+        }
+
+        /* Village Data Section */
+        #data {
+            background-color: var(--white);
+        }
+
+        .data-controls {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 1px solid var(--light-brown);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--earth-brown);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .data-card {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .data-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-card h3 i {
+            color: var(--earth-brown);
+        }
+
+        .data-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--earth-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .data-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .edit-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--edit-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .edit-button:hover {
+            background-color: #e68900;
+        }
+
+        /* Village Services Section */
+        #services {
+            background-color: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            height: 100%;
+        }
+
+        .service-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card h3 i {
+            color: var(--earth-brown);
+        }
+
+        .service-list {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .service-list li i {
+            color: var(--light-green);
+            margin-top: 0.3rem;
+        }
+
+        .service-hours {
+            background-color: var(--light-green);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-hours p {
+            font-weight: 500;
+        }
+
+        .contact-person {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-person img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-brown);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* News Section */
+        #news {
+            background-color: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background-color: var(--cream);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .news-excerpt {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background-color: var(--cream);
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-filter button {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-brown);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .gallery-filter button:hover,
+        .gallery-filter button.active {
+            background-color: var(--earth-brown);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: var(--white);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Modal for Gallery */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Edit Data Modal */
+        .edit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .edit-modal-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .edit-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .edit-modal-header h3 {
+            color: var(--primary-green);
+        }
+
+        .close-edit-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .edit-form-group {
+            margin-bottom: 1rem;
+        }
+
+        .edit-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .edit-form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-brown);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .edit-form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-cancel {
+            background-color: var(--text-light);
+        }
+
+        .btn-cancel:hover {
+            background-color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background-color: var(--cream);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info h3 i {
+            color: var(--earth-brown);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-form {
+            background-color: var(--cream);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form h3 i {
+            color: var(--earth-brown);
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: var(--light-green);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--light-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-green);
+            color: var(--white);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--earth-brown);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-green);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .village-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary-green);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .data-controls {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 4000;
+            display: none;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <h1>Desa Kawahmanuk</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#profile">Profil Desa</a></li>
+                    <li><a href="#data">Data Desa</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#news">Berita</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Selamat Datang di Desa Kawahmanuk</h2>
+            <p>Desa hijau yang asri dengan keindahan alam dan kearifan lokal yang memukau</p>
+            <a href="#home" class="btn">Jelajahi Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sambutan Kepala Desa</h2>
+            </div>
+            
+            <div class="welcome-message">
+                <h3>Assalamualaikum Warahmatullahi Wabarakatuh</h3>
+                <p>Selamat datang di website resmi Desa Kawahmanuk. Kami berharap website ini dapat menjadi jembatan informasi antara pemerintah desa dengan masyarakat, serta memperkenalkan potensi dan keindahan desa kami kepada dunia. Terima kasih atas kunjungan Anda.</p>
+                <p style="margin-top: 1rem; font-weight: 600;">Hormat Kami,<br>Kepala Desa Kawahmanuk</p>
+            </div>
+
+            <div class="village-intro">
+                <div class="village-intro-text">
+                    <h3>Tentang Desa Kawahmanuk</h3>
+                    <p>Desa Kawahmanuk adalah sebuah desa yang terletak di kawasan pegunungan dengan pemandangan alam yang memukau. Desa kami dikenal dengan kelestarian alamnya, pertanian organik, dan kebudayaan tradisional yang masih terjaga dengan baik.</p>
+                    <p>Dengan populasi sekitar 5.000 jiwa, mayoritas penduduk Desa Kawahmanuk bekerja sebagai petani. Hasil pertanian utama kami meliputi sayuran organik, buah-buahan, dan tanaman obat tradisional.</p>
+                    <p>Kami berkomitmen untuk mengembangkan desa dengan tetap menjaga keseimbangan antara kemajuan dan kelestarian alam, sehingga Desa Kawahmanuk dapat menjadi contoh desa berkelanjutan di Indonesia.</p>
+                </div>
+                <div class="village-intro-image">
+                    <img src="https://picsum.photos/seed/village2/600/400.jpg" alt="Pemandangan Desa Kawahmanuk">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Village Profile Section -->
+    <section id="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil Desa</h2>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-card">
+                    <h3><i class="fas fa-history"></i> Sejarah Desa</h3>
+                    <p>Desa Kawahmanuk didirikan pada awal abad ke-19 oleh sekelompok pendatang yang mencari penghidupan baru di kawasan pegunungan. Nama "Kawahmanuk" berasal dari dua kata, "Kawah" yang merujuk pada bentuk geografis desa yang seperti kawah, dan "Manuk" yang dalam bahasa lokal berarti burung, melambangkan kebebasan dan kedamaian.</p>
+                    <p>Sejak berdirinya, desa ini telah berkembang dari sebuah pemukiman kecil menjadi desa yang mandiri dengan berbagai potensi alam dan sumber daya manusia yang unggul.</p>
+                </div>
+                
+                <div class="profile-card">
+                    <h3><i class="fas fa-bullseye"></i> Visi & Misi</h3>
+                    <h4>Visi:</h4>
+                    <p>"Terwujudnya Desa Kawahmanuk yang Maju, Mandiri, Berkelanjutan, dan Berbudaya Berbasis Pertanian Organik dan Pariwisata Ramah Lingkungan"</p>
+                    <h4 style="margin-top: 1rem;">Misi:</h4>
+                    <ol>
+                        <li>Meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan keterampilan.</li>
+                        <li>Mengembangkan pertanian organik sebagai basis ekonomi desa.</li>
+                        <li>Melestarikan budaya lokal dan lingkungan hidup.</li>
+                        <li>Meningkatkan sarana dan prasarana desa yang mendukung kesejahteraan masyarakat.</li>
+                        <li>Mengembangkan potensi pariwisata berbasis alam dan budaya.</li>
+                    </ol>
+                </div>
+                
+                <div class="profile-card">
+                    <h3><i class="fas fa-sitemap"></i> Struktur Organisasi</h3>
+                    <ul class="org-structure">
+                        <li><strong>Kepala Desa:</strong> Budi Santoso</li>
+                        <li><strong>Sekretaris Desa:</strong> Siti Aminah</li>
+                        <li><strong>Kepala Urusan Pemerintahan:</strong> Ahmad Fauzi</li>
+                        <li><strong>Kepala Urusan Pembangunan:</strong> Dwi Susanto</li>
+                        <li><strong>Kepala Urusan Kesra:</strong> Ratna Sari</li>
+                        <li><strong>Kepala Urusan Keuangan:</strong> Eko Prasetyo</li>
+                        <li><strong>Kepala Dusun I:</strong> Suparno</li>
+                        <li><strong>Kepala Dusun II:</strong> Sumarni</li>
+                        <li><strong>Kepala Dusun III:</strong> Joko Widodo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Village Data Section -->
+    <section id="data">
+        <div class="container">
+            <div class="section-title">
+                <h2>Data Desa</h2>
+            </div>
+            
+            <div class="data-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="dataSearch" placeholder="Cari data desa...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="population">Penduduk</button>
+                    <button class="filter-btn" data-filter="agriculture">Pertanian</button>
+                    <button class="filter-btn" data-filter="infrastructure">Infrastruktur</button>
+                </div>
+            </div>
+            
+            <div class="data-grid" id="dataGrid">
+                <!-- Data cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Village Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Desa</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-id-card"></i> Layanan Administrasi</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Pembuatan KTP (Kartu Tanda Penduduk)</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan KK (Kartu Keluarga)</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Akta Kelahiran</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Akta Kematian</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Surat Pindah</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Surat Keterangan Domisili</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Surat Keterangan Usaha</li>
+                        <li><i class="fas fa-check-circle"></i> Pembuatan Surat Keterangan Tidak Mampu</li>
+                    </ul>
+                    
+                    <div class="service-hours">
+                        <p><i class="fas fa-clock"></i> Jam Layanan: Senin - Jumat, 08:00 - 15:00 WIB</p>
+                    </div>
+                    
+                    <div class="contact-person">
+                        <img src="https://picsum.photos/seed/person1/100/100.jpg" alt="Petugas Administrasi">
+                        <div>
+                            <p style="font-weight: 600;">Petugas Administrasi</p>
+                            <p>Siti Aminah</p>
+                            <p>0812-3456-7890</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-file-alt"></i> Layanan Surat-Surat</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Pengantar</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Izin Keramaian</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Izin Mendirikan Bangunan</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Bebas Pajak</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Catatan Kepolisian</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Ahli Waris</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Jual Beli Tanah</li>
+                        <li><i class="fas fa-check-circle"></i> Surat Keterangan Pernikahan</li>
+                    </ul>
+                    
+                    <div class="service-hours">
+                        <p><i class="fas fa-clock"></i> Jam Layanan: Senin - Jumat, 08:00 - 15:00 WIB</p>
+                    </div>
+                    
+                    <div class="contact-person">
+                        <img src="https://picsum.photos/seed/person2/100/100.jpg" alt="Petugas Surat-Surat">
+                        <div>
+                            <p style="font-weight: 600;">Petugas Surat-Surat</p>
+                            <p>Ahmad Fauzi</p>
+                            <p>0813-4567-8901</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-laptop"></i> Layanan Online</h3>
+                    <p>Isi formulir berikut untuk mengajukan layanan secara online:</p>
+                    
+                    <form id="onlineForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nik">NIK</label>
+                            <input type="text" id="nik" name="nik" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Jenis Layanan</label>
+                            <select id="service" name="service" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="ktp">Pembuatan KTP</option>
+                                <option value="kk">Pembuatan KK</option>
+                                <option value="akta-lahir">Pembuatan Akta Kelahiran</option>
+                                <option value="sk-domisili">Surat Keterangan Domisili</option>
+                                <option value="sk-usaha">Surat Keterangan Usaha</option>
+                                <option value="sk-tdk-mampu">Surat Keterangan Tidak Mampu</option>
+                                <option value="surat-pengantar">Surat Keterangan Pengantar</option>
+                                <option value="izin-keramaian">Surat Izin Keramaian</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Keterangan Tambahan</label>
+                            <textarea id="message" name="message" placeholder="Jelaskan kebutuhan Anda..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Kirim Permohonan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Berita & Pengumuman</h2>
+            </div>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news1/400/300.jpg" alt="Panen Raya">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">15 Oktober 2023</div>
+                        <h3 class="news-title">Panen Raya Sayuran Organik Desa Kawahmanuk</h3>
+                        <p class="news-excerpt">Desa Kawahmanuk kembali melaksanakan panen raya sayuran organik dengan hasil yang memuaskan. Kali ini, panen raya diikuti oleh 50 kelompok tani dengan total hasil mencapai 120 ton...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news2/400/300.jpg" alt="Festival Budaya">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">5 Oktober 2023</div>
+                        <h3 class="news-title">Festival Budaya Desa Kawahmanuk 2023</h3>
+                        <p class="news-excerpt">Festival Budaya Desa Kawahmanuk kembali digelar untuk melestarikan dan mempromosikan kebudayaan lokal. Acara ini berlangsung meriah dengan berbagai pertunjukan seni tradisional...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news3/400/300.jpg" alt="Pembangunan Jalan">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">28 September 2023</div>
+                        <h3 class="news-title">Peresmian Jalan Baru Menghubungkan Dusun II dan III</h3>
+                        <p class="news-excerpt">Jalan baru sepanjang 3,5 kilometer yang menghubungkan Dusun II dan III telah diresmikan oleh Kepala Desa. Pembangunan jalan ini menggunakan dana desa tahun 2023...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news4/400/300.jpg" alt="Pelatihan">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">20 September 2023</div>
+                        <h3 class="news-title">Pelatihan Budidaya Jamur Tiram untuk Pemuda Desa</h3>
+                        <p class="news-excerpt">Sebanyak 30 pemuda desa mengikuti pelatihan budidaya jamur tiram yang diselenggarakan oleh Dinas Pertanian setempat. Pelatihan ini bertujuan untuk meningkatkan keterampilan...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news5/400/300.jpg" alt="Vaksinasi">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">10 September 2023</div>
+                        <h3 class="news-title">Gerakan Vaksinasi Booster untuk Lansia</h3>
+                        <p class="news-excerpt">Pemerintah Desa Kawahmanuk bekerja sama dengan Puskesmas setempat menggelar gerakan vaksinasi booster khusus untuk lansia. Kegiatan ini diikuti oleh 150 lansia dari tiga dusun...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://picsum.photos/seed/news6/400/300.jpg" alt="Bantuan">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">1 September 2023</div>
+                        <h3 class="news-title">Penyaluran Bantuan Langsung Tunai Desa</h3>
+                        <p class="news-excerpt">Pemerintah Desa Kawahmanuk menyalurkan Bantuan Langsung Tunai (BLT) Desa kepada 200 keluarga penerima manfaat. Penyaluran bantuan ini dilakukan secara langsung oleh Kepala Desa...</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri</h2>
+            </div>
+            
+            <div class="gallery-filter">
+                <button class="active" data-filter="all">Semua</button>
+                <button data-filter="landscape">Pemandangan</button>
+                <button data-filter="activity">Kegiatan</button>
+                <button data-filter="culture">Budaya</button>
+                <button data-filter="agriculture">Pertanian</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://picsum.photos/seed/gallery1/400/300.jpg" alt="Pemandangan Desa">
+                    <div class="gallery-overlay">
+                        <h4>Pemandangan Desa</h4>
+                        <p>Keindahan alam Desa Kawahmanuk</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://picsum.photos/seed/gallery2/400/300.jpg" alt="Sunrise">
+                    <div class="gallery-overlay">
+                        <h4>Matahari Terbit</h4>
+                        <p>Sunrise di Desa Kawahmanuk</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="activity">
+                    <img src="https://picsum.photos/seed/gallery3/400/300.jpg" alt="Rapat Desa">
+                    <div class="gallery-overlay">
+                        <h4>Rapat Desa</h4>
+                        <p>Musyawarah perencanaan pembangunan desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://picsum.photos/seed/gallery4/400/300.jpg" alt="Tari Tradisional">
+                    <div class="gallery-overlay">
+                        <h4>Tari Tradisional</h4>
+                        <p>Pertunjukan seni budaya lokal</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="https://picsum.photos/seed/gallery5/400/300.jpg" alt="Panen Sayuran">
+                    <div class="gallery-overlay">
+                        <h4>Panen Sayuran</h4>
+                        <p>Petani sedang panen sayuran organik</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://picsum.photos/seed/gallery6/400/300.jpg" alt="Sawah">
+                    <div class="gallery-overlay">
+                        <h4>Sawah Terasering</h4>
+                        <p>Keindahan sawah terasering desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="activity">
+                    <img src="https://picsum.photos/seed/gallery7/400/300.jpg" alt="Pelatihan">
+                    <div class="gallery-overlay">
+                        <h4>Pelatihan Pertanian</h4>
+                        <p>Pelatihan teknik pertanian organik</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://picsum.photos/seed/gallery8/400/300.jpg" alt="Upacara Adat">
+                    <div class="gallery-overlay">
+                        <h4>Upacara Adat</h4>
+                        <p>Upacara tradisional desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="agriculture">
+                    <img src="https://picsum.photos/seed/gallery9/400/300.jpg" alt="Kebun Buah">
+                    <div class="gallery-overlay">
+                        <h4>Kebun Buah</h4>
+                        <p>Perkebunan buah organik desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="activity">
+                    <img src="https://picsum.photos/seed/gallery10/400/300.jpg" alt="Gotong Royong">
+                    <div class="gallery-overlay">
+                        <h4>Gotong Royong</h4>
+                        <p>Semangat gotong royong warga desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="landscape">
+                    <img src="https://picsum.photos/seed/gallery11/400/300.jpg" alt="Air Terjun">
+                    <div class="gallery-overlay">
+                        <h4>Air Terjun</h4>
+                        <p>Objek wisata air terjun desa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="culture">
+                    <img src="https://picsum.photos/seed/gallery12/400/300.jpg" alt="Rumah Adat">
+                    <div class="gallery-overlay">
+                        <h4>Rumah Adat</h4>
+                        <p>Arsitektur rumah tradisional desa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak & Lokasi</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Informasi Kontak</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Kantor Desa Kawahmanuk<br>Jl. Raya Desa No. 10, Kec. Kawahmanuk<br>Kab. Hijau Lestari, Prov. Damai Sejahtera<br>Kode Pos: 56789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>(0274) 123456</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@desakawahmanuk.id</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Jam Kerja</h4>
+                            <p>Senin - Jumat: 08:00 - 15:00 WIB<br>Sabtu: 08:00 - 12:00 WIB<br>Minggu & Hari Libur: Tutup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3><i class="fas fa-envelope-open-text"></i> Hubungi Kami</h3>
+                    <p>Isi formulir berikut untuk mengirimkan pesan atau pertanyaan kepada kami:</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nama Lengkap</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subjek</label>
+                            <input type="text" id="contactSubject" name="contactSubject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Pesan</label>
+                            <textarea id="contactMessage" name="contactMessage" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.664734478733!2d112.612042314775!3d-7.275431494728568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac471%3A0x3025a7312984e0!2sSurabaya%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1664478400000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Desa Kawahmanuk</h3>
+                    <p>Desa Kawahmanuk adalah desa yang terletak di kawasan pegunungan dengan keindahan alam yang memukau dan kebudayaan tradisional yang masih terjaga dengan baik.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Menu Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#profile">Profil Desa</a></li>
+                        <li><a href="#data">Data Desa</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#news">Berita</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Administrasi Kependudukan</a></li>
+                        <li><a href="#">Pelayanan Surat-Surat</a></li>
+                        <li><a href="#">Pengajuan Izin</a></li>
+                        <li><a href="#">Konsultasi Pertanian</a></li>
+                        <li><a href="#">Pemberdayaan Masyarakat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hubungi Kami</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Desa No. 10, Kawahmanuk</li>
+                        <li><i class="fas fa-phone"></i> (0274) 123456</li>
+                        <li><i class="fas fa-envelope"></i> info@desakawahmanuk.id</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Desa Kawahmanuk. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <img id="modalImage" src="" alt="Gallery Image">
+        </div>
+    </div>
+
+    <!-- Edit Data Modal -->
+    <div class="edit-modal" id="editModal">
+        <div class="edit-modal-content">
+            <div class="edit-modal-header">
+                <h3>Edit Data Desa</h3>
+                <button class="close-edit-modal" id="closeEditModal">&times;</button>
+            </div>
+            <form id="editForm">
+                <div class="edit-form-group">
+                    <label for="editTitle">Judul Data</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                <div class="edit-form-group">
+                    <label for="editValue">Nilai Data</label>
+                    <input type="text" id="editValue" required>
+                </div>
+                <div class="edit-form-group">
+                    <label for="editDescription">Deskripsi</label>
+                    <input type="text" id="editDescription">
+                </div>
+                <div class="edit-form-actions">
+                    <button type="button" class="btn btn-cancel" id="cancelEdit">Batal</button>
+                    <button type="submit" class="btn">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p id="notificationText"></p>
+    </div>
+
+    <script>
+        // Data Desa - Initial data
+        const initialData = [
+            // Population Data
+            { id: 1, category: 'population', icon: 'fas fa-users', title: 'Total Penduduk', value: '5,247', description: 'Jiwa' },
+            { id: 2, category: 'population', icon: 'fas fa-male', title: 'Penduduk Laki-laki', value: '2,631', description: 'Jiwa (50.2%)' },
+            { id: 3, category: 'population', icon: 'fas fa-female', title: 'Penduduk Perempuan', value: '2,616', description: 'Jiwa (49.8%)' },
+            { id: 4, category: 'population', icon: 'fas fa-child', title: 'Kelompok Usia 0-14', value: '1,312', description: 'Jiwa (25%)' },
+            { id: 5, category: 'population', icon: 'fas fa-user', title: 'Kelompok Usia 15-64', value: '3,563', description: 'Jiwa (68%)' },
+            { id: 6, category: 'population', icon: 'fas fa-user-clock', title: 'Kelompok Usia 65+', value: '372', description: 'Jiwa (7%)' },
+            { id: 7, category: 'population', icon: 'fas fa-graduation-cap', title: 'Tingkat Pendidikan SD', value: '1,574', description: 'Orang (30%)' },
+            { id: 8, category: 'population', icon: 'fas fa-school', title: 'Tingkat Pendidikan SMP', value: '1,364', description: 'Orang (26%)' },
+            { id: 9, category: 'population', icon: 'fas fa-university', title: 'Tingkat Pendidikan SMA', value: '1,050', description: 'Orang (20%)' },
+            { id: 10, category: 'population', icon: 'fas fa-user-graduate', title: 'Tingkat Pendidikan Perguruan Tinggi', value: '262', description: 'Orang (5%)' },
+            { id: 11, category: 'population', icon: 'fas fa-briefcase', title: 'Pekerja Pertanian', value: '2,624', description: 'Orang (50%)' },
+            { id: 12, category: 'population', icon: 'fas fa-store', title: 'Pekerja Perdagangan', value: '787', description: 'Orang (15%)' },
+            
+            // Agricultural Data
+            { id: 13, category: 'agriculture', icon: 'fas fa-seedling', title: 'Luas Lahan Pertanian', value: '847', description: 'Hektar' },
+            { id: 14, category: 'agriculture', icon: 'fas fa-carrot', title: 'Produksi Sayuran', value: '4,235', description: 'Ton/Tahun' },
+            { id: 15, category: 'agriculture', icon: 'fas fa-apple-alt', title: 'Produksi Buah-buahan', value: '1,574', description: 'Ton/Tahun' },
+            { id: 16, category: 'agriculture', icon: 'fas fa-leaf', title: 'Lahan Organik Terdaftar', value: '632', description: 'Hektar (75%)' },
+            { id: 17, category: 'agriculture', icon: 'fas fa-tint', title: 'Sumber Air Irigasi', value: '12', description: 'Unit' },
+            
+            // Infrastructure Data
+            { id: 18, category: 'infrastructure', icon: 'fas fa-road', title: 'Panjang Jalan Desa', value: '42.5', description: 'Kilometer' },
+            { id: 19, category: 'infrastructure', icon: 'fas fa-road', title: 'Jalan Aspal', value: '28.7', description: 'Kilometer (67.5%)' },
+            { id: 20, category: 'infrastructure', icon: 'fas fa-home', title: 'Jumlah Rumah Tangga', value: '1,312', description: 'Unit' },
+            { id: 21, category: 'infrastructure', icon: 'fas fa-lightbulb', title: 'Rumah Berlistrik', value: '1,285', description: 'Unit (98%)' },
+            { id: 22, category: 'infrastructure', icon: 'fas fa-tint', title: 'Rumah Ber-PAM', value: '1,183', description: 'Unit (90%)' },
+            { id: 23, category: 'infrastructure', icon: 'fas fa-school', title: 'Fasilitas Pendidikan', value: '8', description: 'Unit (3 SD, 2 SMP, 1 SMA, 2 PAUD)' },
+            { id: 24, category: 'infrastructure', icon: 'fas fa-hospital', title: 'Fasilitas Kesehatan', value: '4', description: 'Unit (1 Puskesmas, 3 Posyandu)' },
+            { id: 25, category: 'infrastructure', icon: 'fas fa-place-of-worship', title: 'Tempat Ibadah', value: '12', description: 'Unit (8 Masjid, 4 Mushola)' }
+        ];
+
+        // Initialize data from localStorage or use initial data
+        let villageData = JSON.parse(localStorage.getItem('villageData')) || initialData;
+
+        // Save data to localStorage
+        function saveDataToLocalStorage() {
+            localStorage.setItem('villageData', JSON.stringify(villageData));
+        }
+
+        // Render data cards
+        function renderDataCards() {
+            const dataGrid = document.getElementById('dataGrid');
+            dataGrid.innerHTML = '';
+            
+            villageData.forEach(data => {
+                const card = document.createElement('div');
+                card.className = 'data-card';
+                card.setAttribute('data-category', data.category);
+                card.setAttribute('data-id', data.id);
+                
+                card.innerHTML = `
+                    <button class="edit-button" onclick="openEditModal(${data.id})">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <h3><i class="${data.icon}"></i> ${data.title}</h3>
+                    <div class="data-value">${data.value}</div>
+                    <div class="data-description">${data.description}</div>
+                `;
+                
+                dataGrid.appendChild(card);
+            });
+        }
+
+        // Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when link is clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Data Search and Filter
+        const dataSearch = document.getElementById('dataSearch');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        // Search functionality
+        dataSearch.addEventListener('input', () => {
+            const searchTerm = dataSearch.value.toLowerCase();
+            const dataCards = document.querySelectorAll('.data-card');
+            
+            dataCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                const dataCards = document.querySelectorAll('.data-card');
+                
+                dataCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Gallery Filter
+        const galleryFilterButtons = document.querySelectorAll('.gallery-filter button');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                galleryFilterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Gallery Modal
+        const modal = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modalImage.src = imgSrc;
+                modal.style.display = 'flex';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Edit Data Modal
+        const editModal = document.getElementById('editModal');
+        const closeEditModal = document.getElementById('closeEditModal');
+        const cancelEdit = document.getElementById('cancelEdit');
+        const editForm = document.getElementById('editForm');
+        
+        let currentEditId = null;
+        
+        // Open edit modal
+        function openEditModal(id) {
+            currentEditId = id;
+            const data = villageData.find(item => item.id === id);
+            
+            if (data) {
+                document.getElementById('editTitle').value = data.title;
+                document.getElementById('editValue').value = data.value;
+                document.getElementById('editDescription').value = data.description;
+                
+                editModal.style.display = 'flex';
+            }
+        }
+        
+        // Close edit modal
+        closeEditModal.addEventListener('click', () => {
+            editModal.style.display = 'none';
+        });
+        
+        cancelEdit.addEventListener('click', () => {
+            editModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === editModal) {
+                editModal.style.display = 'none';
+            }
+        });
+        
+        // Handle edit form submission
+        editForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const title = document.getElementById('editTitle').value;
+            const value = document.getElementById('editValue').value;
+            const description = document.getElementById('editDescription').value;
+            
+            // Find and update the data
+            const dataIndex = villageData.findIndex(item => item.id === currentEditId);
+            
+            if (dataIndex !== -1) {
+                villageData[dataIndex].title = title;
+                villageData[dataIndex].value = value;
+                villageData[dataIndex].description = description;
+                
+                // Save to localStorage
+                saveDataToLocalStorage();
+                
+                // Re-render the data cards
+                renderDataCards();
+                
+                // Close modal
+                editModal.style.display = 'none';
+                
+                // Show notification
+                showNotification('Data berhasil diperbarui!');
+            }
+        });
+        
+        // Form Submissions
+        const onlineForm = document.getElementById('onlineForm');
+        const contactForm = document.getElementById('contactForm');
+        
+        // Show notification
+        function showNotification(message, isSuccess = true) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.style.backgroundColor = isSuccess ? '#4caf50' : '#f44336';
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Online form submission
+        onlineForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(onlineForm);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // In a real application, you would send this data to a server
+            console.log('Online form submitted:', data);
+            
+            // Show success notification
+            showNotification('Permohonan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
+            
+            // Reset form
+            onlineForm.reset();
+        });
+        
+        // Contact form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // In a real application, you would send this data to a server
+            console.log('Contact form submitted:', data);
+            
+            // Show success notification
+            showNotification('Pesan Anda telah berhasil dikirim. Kami akan merespons segera.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDataCards();
+        });
+    </script>
+</body>
+</html>
